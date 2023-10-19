@@ -5,7 +5,7 @@ import com.trackobit.exception.BloodBankException;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 
-public class Donor {
+public class DonorDTO {
 
     private int id;
     private String name;
@@ -15,12 +15,11 @@ public class Donor {
     private LocalDateTime localDateTime;
 
     private String address;
-    private  int count;
-
-    public Donor() {
+private int count;
+    public DonorDTO() {
     }
 
-    public Donor(int id, String name, int age, String bloodGroup, int unit, LocalDateTime localDateTime, String address,int count) {
+    public DonorDTO(int id, String name, int age, String bloodGroup, int unit, LocalDateTime localDateTime, String address,int count) {
         this.id = id;
        setName(name);
         setAge(age);
@@ -31,11 +30,16 @@ public class Donor {
         this.count=count;
     }
 
-
-
-
     public int getId() {
         return id;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
     }
 
     public void setId(int id) {
@@ -64,14 +68,6 @@ public class Donor {
         } else {
             throw new BloodBankException("Invalid age. Age must be between 18 and 120.");
         }
-    }
-
-    public int getCount() {
-        return count;
-    }
-
-    public void setCount(int count) {
-        this.count = count;
     }
 
     public String getBloodGroup() {
@@ -128,6 +124,4 @@ public class Donor {
                 ", address='" + address + '\'' +
                 '}';
     }
-
-   
 }

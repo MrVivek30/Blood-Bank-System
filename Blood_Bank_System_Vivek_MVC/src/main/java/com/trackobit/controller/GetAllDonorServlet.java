@@ -26,6 +26,7 @@ public class GetAllDonorServlet extends HttpServlet {
         request.setAttribute("donors", donors);
 donors.removeIf(i->i.getUnit()==0);
         request.getRequestDispatcher("allDonors.jsp").forward(request, response);
+
     }}
 
 

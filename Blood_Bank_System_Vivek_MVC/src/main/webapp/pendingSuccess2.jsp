@@ -4,7 +4,7 @@
 
 <html>
 <head>
-    <title>Donation Successful</title>
+    <title>Requested Successfully</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -60,8 +60,8 @@
 <body>
     <div class="message-container">
         <div class="decorative-line"></div>
-        <h2>Thank You for  Blood Donation!</h2>
-        <p>Your contribution is invaluable and can save lives. Your act of kindness and generosity will make a significant difference in someone's life. Please consider donating again in the future.</p>
+        <h2>Requested  Successfully !</h2>
+
         <p>Redirecting to <a href="index.jsp">Home Page</a>...</p>
     </div>
     <script>

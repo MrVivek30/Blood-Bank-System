@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.trackobit.model.Donor" %>
+<%@ page import="com.trackobit.model.DonorDTO" %>
 
 <html>
 <head>
@@ -93,14 +93,11 @@
             <th>Units Available</th>
             <th>Address</th>
             <th>Donation Date and Time</th>
-
-            <th>Pending Action Count</th>
-                <th>Pending Action Status</th>
             <th>Action</th>
         </tr>
         <%
-        List<Donor> donors = (List<Donor>) request.getAttribute("donors");
-        for (Donor donor : donors) { %>
+        List<DonorDTO> donors = (List<DonorDTO>) request.getAttribute("donorsDto");
+        for (DonorDTO donor : donors) { %>
             <tr>
                 <td><%= donor.getId() %></td>
                 <td><%= donor.getName() %></td>
@@ -109,33 +106,17 @@
                 <td><%= donor.getUnit() %></td>
                 <td><%= donor.getAddress() %></td>
                 <td><%= donor.getLocalDateTime() %></td>
-                  <td><%= donor.getCount()%></td>
-        <td>
-            <%
-            if (donor.getCount() > 0) {
-            %>
-                <a href="getAllPendingReceiver?donorId=<%= donor.getId() %>&units=<%= donor.getUnit() %>">Pending</a>
-            <%
-            } else {
-            %>
-                Not Pending
-            <%
-            }
-            %>
-        </td>
-
+                <td><%= donor.getCount()%></td>
                 <td><a href="receive.jsp?donorId=<%= donor.getId() %>&units=<%= donor.getUnit() %>" class="select-button">Select</a></td>
+
             </tr>
         <% } %>
-
     </table>
 
 
      <div class="action-links">
       <a href="donate.jsp" >Donate again</a>
      <a href="index.jsp" >Home page</a>
-      <a href="Filter.jsp">Filter</a>
-      <a href="sorting.jsp">Sorting</a>
         </div>
 </body>
 </html>

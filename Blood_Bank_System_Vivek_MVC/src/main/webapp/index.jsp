@@ -60,8 +60,6 @@
         <div class="link-container">
             <a href="donate.jsp">Donate Blood</a>
             <a href="getAllDonor">Receive Blood</a>
-            <a href="Filter.jsp">Filter</a>
-            <a href="sorting.jsp">Sorting</a>
             <a href="getAllReceiver">AllReceiver</a>
         </div>
     </div>

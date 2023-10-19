@@ -4,23 +4,4 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
-
-  <servlet>
-    <servlet-name>HomeServlet</servlet-name>
-    <servlet-class>com.trackobit.HomeServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>HomeServlet</servlet-name>
-    <url-pattern>/home</url-pattern>
-  </servlet-mapping>
-
-  <servlet>
-    <servlet-name>DonateServlet</servlet-name>
-    <servlet-class>com.trackobit.DonateServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>DonateServlet</servlet-name>
-    <url-pattern>/donate</url-pattern>
-  </servlet-mapping>
-
 </web-app>

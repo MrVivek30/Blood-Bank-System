@@ -2,6 +2,7 @@ package com.trackobit.controller;
 
 import com.trackobit.dao.BloodBank;
 import com.trackobit.model.Donor;
+import com.trackobit.model.DonorDTO;
 import com.trackobit.service.DonorExist;
 
 import javax.servlet.ServletException;
@@ -26,12 +27,14 @@ public class DonateServlet extends HttpServlet {
 LocalDateTime l=LocalDateTime.now();
 
 if (DonorExist.isExist(id,l)) {
-    Donor donor = new Donor(id, name, age, bloodGroup, units, l, address);
+    Donor donor = new Donor(id, name, age, bloodGroup.toUpperCase(), units, l, address,0);
 
-
+    DonorDTO donorDTO=new DonorDTO(id,name,age,bloodGroup.toUpperCase(),units,l,address,0);
+BloodBank.addDonorPending(donorDTO);
     BloodBank.addDonor(donor);
 
     System.out.println("from donateServlet---------------" + donor);
+    System.out.println("from donateServlet---------------" + donorDTO);
 
     request.setAttribute("successMessage", "Donation successful!");
 

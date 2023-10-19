@@ -59,26 +59,39 @@
     </style>
 </head>
 <body>
-    <form action="FilterServlet" method="post">
-        <table>
-            <tr>
-                <td>Select Filter Criteria:</td>
-                <td>
-                    <select name="filterCriteria">
-                        <option value="name">Name</option>
-                        <option value="age">Age</option>
-                        <option value="bloodType">Blood Type</option>
-                        <option value="address">Address</option>
-                        <option value="bloodUnit">Blood Unit</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>Filter Value:</td>
-                <td><input type="text" name="filterValue"></td>
-            </tr>
-        </table>
-        <input type="submit" value="Filter">
-    </form>
+       <form action="FilterServlet" method="post">
+            <table>
+                <tr>
+                    <td>Select Filter Criteria:</td>
+                    <td>
+                        <select name="filterCriteria">
+                            <option value="name">Name</option>
+                            <option value="age">Age</option>
+                            <option value="bloodType">Blood Type</option>
+                            <option value="address">Address</option>
+                            <option value="bloodUnit">Blood Unit</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Filter Type:</td>
+                    <td>
+                        <select name="filterType">
+                            <option value="exact">Exact</option>
+                            <option value="range">Range</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Filter Value:</td>
+                    <td>
+                        <input type="text" name="filterValue" placeholder="Enter Value">
+                        <input type="text" name="minValue" placeholder="Min Value" style="width: calc(50% - 10px);">
+                        <input type="text" name="maxValue" placeholder="Max Value" style="width: calc(50% - 10px);">
+                    </td>
+                </tr>
+            </table>
+            <input type="submit" value="Filter">
+        </form>
 </body>
 </html>

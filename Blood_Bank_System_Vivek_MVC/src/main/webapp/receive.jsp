@@ -74,10 +74,10 @@
                 int availableUnits = Integer.parseInt(request.getParameter("units"));
             %>
         Units Available: <input value="<%= request.getParameter("units") %>" type="number" name="units" required readonly class="readonly-input"><br>
-            Units needed: <input type="number" name="unit" required max="<%= availableUnits %>"><br>
+            Units needed: <input type="number" name="unit" required ><br>
         <input type="submit" value="Receive">
 
     </form>
-       <a href="RequestBlood.jsp">RequestBlood</a>
+
 </body>
 </html>

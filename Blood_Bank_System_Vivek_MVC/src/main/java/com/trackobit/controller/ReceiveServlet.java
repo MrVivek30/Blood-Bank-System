@@ -2,6 +2,7 @@ package com.trackobit.controller;
 
 import com.trackobit.dao.BloodBank;
 import com.trackobit.model.Donor;
+import com.trackobit.model.DonorDTO;
 import com.trackobit.model.Receiver;
 
 import javax.servlet.ServletException;
@@ -45,21 +46,31 @@ public class ReceiveServlet extends HttpServlet {
 //=============================================================================================
 
         Donor d=BloodBank.getDonorById(id);
-      d.setUnit(d.getUnit()-units);
+//        DonorDTO d2=BloodBank.getDonorPendingById(id);
+        if (units<=d.getUnit()) {
+            d.setUnit(d.getUnit() - units);
 
-        BloodBank.addReceiver(receiver);
-        System.out.println("from receiveServlet---------------"+receiver);
-
-
-
-
+            BloodBank.addReceiver(receiver);
+            System.out.println("from receiveServlet---------------" + receiver);
 
 
-        request.setAttribute("successMessage", "Received successful!");
+            request.setAttribute("successMessage", "Received successful!");
 
 
-        request.getRequestDispatcher("success2.jsp").forward(request, response);
+            request.getRequestDispatcher("success2.jsp").forward(request, response);
+        }else{
 
+        d.setCount(d.getCount()+1);
+
+        BloodBank.addReceiverPending(receiver);
+            System.out.println("from receiveServlet Pending Blood---------------" + receiver);
+
+
+            request.setAttribute("successMessage", "Received successful!");
+
+
+            request.getRequestDispatcher("pendingSuccess2.jsp").forward(request, response);
+        }
 
 
     }
